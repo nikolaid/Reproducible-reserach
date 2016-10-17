@@ -23,10 +23,9 @@ head(activity)
 steps <- tapply(activity$steps, activity$date, sum)
 ```
 ###create histrogram
-```{r, echo=TRUE}
+```{r, echo=FALSE}
 hist(steps)
 ```
-![plot of chank4](figure/unnamed-chunk-4-1.png)
 ###2. Calculate and report the mean and median total number of steps taken per day
 ```{r}
 mean(steps, na.rm=T)
@@ -38,10 +37,9 @@ median(steps, na.rm=T)
 ```{r}
 steps2 <- tapply(activity$steps, activity$interval, mean, na.rm=T)
 ```
-```{r, echo=TRUE}
+```{r, echo=FALSE}
 plot(steps2, type="l")
 ```
-![plot of chank7](figure/unnamed-chunk-7-1.png)
 ###2.Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 ```{r}
 which.max(steps2)
@@ -65,10 +63,9 @@ sapply(steps,function(x) ifelse(is.na(x)==T, mean(x,na.rm =T),x))
 step3 <- sapply(steps,function(x) ifelse(is.na(x)==T, mean(x,na.rm =T),x))
 ```
 ###4. Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
-```{r, echo=TRUE}
+```{r, echo=FALSE}
 hist(step3)
 ```
-![plot of chank12](figure/unnamed-chunk-12-1.png)
 
 ```{r}
 mean(step3, na.rm=T)
